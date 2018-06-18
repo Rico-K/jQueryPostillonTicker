@@ -1,0 +1,25 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="../jquery.postillonTicker.js"></script>
+        <script type="text/javascript">
+            //<!--
+            $(function() {
+                $("#ticker").postillonTicker({
+                    autoStart: false,
+                    format: "+++ %s +++",
+                });
+                $("#update_button").on("click", function () {
+                    $("#ticker").postillonTicker("update");
+                });
+            });
+            //-->
+        </script>
+    </head>
+    <body>
+        <div id="ticker"></div>
+        <button type="button" id="update_button">Update</button>
+    </body>
+</html>

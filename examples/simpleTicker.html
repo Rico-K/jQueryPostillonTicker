@@ -1,0 +1,24 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="../jquery.postillonTicker.js"></script>
+        <script type="text/javascript">
+            //<!--
+            $(function() {
+                $("#ticker").postillonTicker({
+                    autoStart: true,
+                    format: "+++ %s +++",
+                    instantStart: true,
+                    interval: 10000,
+                    showLinks: true,
+                });
+            });
+            //-->
+        </script>
+    </head>
+    <body>
+        <div id="ticker"></div>
+    </body>
+</html>
