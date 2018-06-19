@@ -323,7 +323,7 @@
                 success: function (data, status, jqXHR) {
                     methods.setSetting.call(pt, "_tickers", data.tickers);
                     methods.setSetting.call(pt, "_tickerIdx", 0);
-                    if (callback && typeof callback === "function")
+                    if ($.isFunction(callback))
                         callback.call(pt);
                 },
                 url: methods.getSetting.call(this, "tickerUrl"),
