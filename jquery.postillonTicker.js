@@ -172,10 +172,12 @@
             var newIdx      = tickerIdx + 1;
 
             var update = function () {
-                var ticker = methods.getCurrentTicker.call(jObj);
-                jObj.fadeOut(methods.getSetting.call(jObj, "fadeOutTime"), function() {
+                var ticker      = methods.getCurrentTicker.call(jObj);
+                var fadeOutTime = methods.getSetting.call(jObj, "fadeOutTime") * 1;
+                jObj.fadeOut(fadeOutTime, function() {
                     var format      = methods.getSetting.call(jObj, "format");
                     var text        = ticker.text;
+                    var fadeInTime  = methods.getSetting.call(jObj, "fadeInTime") * 1;
                     if ("link" in ticker && methods.getSetting.call(jObj, "showLinks"))
                         text = "<a href=\"" + ticker.link + "\" target=\"_blank\">" + text + "</a>";
 
@@ -183,7 +185,7 @@
                     text = text.replace("%s", ticker.short);
 
                     jObj.html(text);
-                    jObj.fadeIn(methods.getSetting.call(jObj, "fadeInTime"), function() {
+                    jObj.fadeIn(fadeInTime, function() {
                         jObj.trigger($.Event("updated." + NS, {ticker: ticker}));
                     });
                 });
@@ -353,9 +355,11 @@
         // public method call
         else if (method in methods && !String(method).match(/^_/) && $.isFunction(methods[method])) {
             var args = Array.prototype.slice.call(arguments, 1);
+            var ret = [];
             this.each(function () {
-                methods[method].apply($(this), args);
+                ret.push(methods[method].apply($(this), args));
             });
+            return ret.length == 1 ? ret[0] : ret;
         }
         else {
             $.error("There is no such method \"" + method + "\" in " + NS);

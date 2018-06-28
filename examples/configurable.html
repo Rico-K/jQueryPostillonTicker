@@ -1,0 +1,73 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="../jquery.postillonTicker.js"></script>
+        <script type="text/javascript">
+            //<!--
+            $(function() {
+                $("#ticker").postillonTicker({
+                    autoStart: true,
+                    instantStart: true,
+                });
+
+                $("#btn_next").on("click", function(e) {
+                    $("#ticker").postillonTicker("update");
+                });
+
+                $("#btn_pause").on("click", function(e) {
+                    $("#ticker").postillonTicker("pause");
+                });
+
+                $("#btn_resume").on("click", function(e) {
+                    $("#ticker").postillonTicker("resume");
+                });
+
+                $("#cbx_pause").on("change", function(e) {
+                    var ticker = $("#ticker");
+                    if (!this.checked) {
+                        ticker.off("mouseenter");
+                        ticker.off("mouseleave");
+                    }
+                    else {
+                        ticker.on("mouseenter", function(e) {
+                            $("#ticker").postillonTicker("pause");
+                        });
+                        ticker.on("mouseleave", function(e) {
+                            $("#ticker").postillonTicker("resume");
+                        });
+                    }
+                });
+
+                $("#input_format").val($("#ticker").postillonTicker("getSetting", "format")).on("change", function(e) {
+                    $("#ticker").postillonTicker("setSetting", "format", $(this).val());
+                });
+
+                $("#input_interval").val($("#ticker").postillonTicker("getSetting", "interval")).on("change", function(e) {
+                    $("#ticker").postillonTicker("setSetting", "interval", $(this).val());
+                });
+
+                $("#input_fade_in").val($("#ticker").postillonTicker("getSetting", "fadeInTime")).on("change", function(e) {
+                    $("#ticker").postillonTicker("setSetting", "fadeInTime", $(this).val());
+                });
+
+                $("#input_fade_out").val($("#ticker").postillonTicker("getSetting", "fadeOutTime")).on("change", function(e) {
+                    $("#ticker").postillonTicker("setSetting", "fadeOutTime", $(this).val());
+                });
+            });
+            //-->
+        </script>
+    </head>
+    <body>
+        <div id="ticker" style="min-height: 50px";></div>
+        <button type="button" id="btn_next">Next</button><br>
+        <button type="button" id="btn_pause">Pause</button><br>
+        <button type="button" id="btn_resume">Resume</button><br>
+        <label for="cbx_pause">Pause on mouse over: </label><input id="cbx_pause" type="checkbox" /><br>
+        <label for="input_format">Format: </label><input id="input_format" type="text" value="" /><br>
+        <label for="input_interval">Interval in milliseconds (ms): </label><input id="input_interval" type="number" value="" /><br>
+        <label for="input_fade_in">Fade in time in milliseconds (ms): </label><input id="input_fade_in" type="number" value="" /><br>
+        <label for="input_fade_out">Fade out time in milliseconds (ms): </label><input id="input_fade_out" type="number" value="" /><br>
+    </body>
+</html>
