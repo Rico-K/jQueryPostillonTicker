@@ -94,7 +94,7 @@ The easiest way to set settings for one ticker is by passing an Object to the pl
 
 ### Set after initialization
 
-You can also set settings after the plugin has be initialized in three different ways:
+You can also set settings after the plugin has been initialized in three different ways:
 
 #### Set single setting
 
@@ -159,6 +159,10 @@ Changing defaults:
     
     $("#ticker1").postillonTicker(); // 5 seconds interval
     $("#ticker2").postillonTicker(); // also 5 seconds interval
+
+You can change any of the default values by changing the properties of
+**`$.fn.postillonTicker.defaults`** but you **should not** overwrite this variable since this would
+overwrite all default values you do not set explicitly and may cause unexpected behavior.
 
 Functions
 ---------
