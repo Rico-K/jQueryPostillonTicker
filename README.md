@@ -69,8 +69,8 @@ Settings
 
 * **autoStart** (*boolean*) - starts automatic ticker updating after initializing the plugin
 (default: `true`)
-* **fadeInTime** (*integer*) - durance of the fade in animation in milliseconds (default: 1000)
-* **fadeOutTime** (*integer*) - durance of the fade out animation in milliseconds (default: 1000)
+* **fadeInTime** (*integer*) - duration of the fade in animation in milliseconds (default: 1000)
+* **fadeOutTime** (*integer*) - duration of the fade out animation in milliseconds (default: 1000)
 * **format** (*string*) - format of the shown ticker text that may contain printf-like string
 placeholders (`%s`) where the first placeholder is replaced with the ticker text and the second one
 with the short name of the ticker's writer (default: `+++ %s +++ (%s)`)

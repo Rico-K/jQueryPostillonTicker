@@ -4,8 +4,8 @@
  * <b>Settings:</b>
  * <ul>
  *   <li>autoStart - updating starts after initialization (default: true)
- *   <li>fadeInTime - durance of the fade in animation in milliseconds (default: 1000)
- *   <li>fadeOutTime - durance of the fade out animation in milliseconds (default: 1000)
+ *   <li>fadeInTime - duration of the fade in animation in milliseconds (default: 1000)
+ *   <li>fadeOutTime - duration of the fade out animation in milliseconds (default: 1000)
  *   <li>format - format of the ticker that gets the text and the short name of the writer passed as
  *                parameters used as printf like string (%s) (default: "+++ %s +++ (%s)")
  *   <li>instantStart - loads ticker directly after start without waiting the first interval
